@@ -36,12 +36,14 @@ public class DbHandler {
 
             ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
             // Проходимся по нашему resultSet и заносим данные в products
-            Map<String, Object>  a = new HashMap<>();
+
             while (resultSet.next()) {
+              Map<String, Object>  a = new HashMap<>();
               a.put("id", resultSet.getInt("id"));
               a.put("username", resultSet.getString("username"));
               a.put("password", resultSet.getString("password"));
               allData.add(a);
+
             }
             // Возвращаем наш список
             return allData;
